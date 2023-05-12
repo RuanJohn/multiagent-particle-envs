@@ -63,9 +63,16 @@ def make_env(scenario_name, benchmark=False):
     '''
     from mpe.environment import MultiAgentEnv
 
+    print(f"SCENARIO NAME: {scenario_name}")
     # load scenario from script
     scenario_module = scenarios[scenario_name]
+
+    print(f"SCENARIO MODULE: {scenario_module}")
+
     scenario = scenario_module()
+
+    print(f"SCENARIO: {scenario}")
+
     # create world
     world = scenario.make_world()
     # create multiagent environment
