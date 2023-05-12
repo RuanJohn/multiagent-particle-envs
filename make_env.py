@@ -65,7 +65,10 @@ def make_env(scenario_name, benchmark=False):
 
     print(f"SCENARIO NAME: {scenario_name}")
     # load scenario from script
-    scenario_module = scenarios[scenario_name]
+    try:
+        scenario_module = scenarios[scenario_name]
+    except KeyError:
+        raise ValueError(f"Scenario '{scenario_name}' not found. Please use one of the following: {list(scenarios.keys())}")
 
     print(f"SCENARIO MODULE: {scenario_module}")
 
